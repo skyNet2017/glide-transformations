@@ -1,4 +1,6 @@
-package jp.wasabeef.example.glide
+package jp.wasabeef.example.glide;
+
+import android.content.res.Resources;
 
 /**
  * Copyright (C) 2020 Wasabeef
@@ -15,9 +17,12 @@ package jp.wasabeef.example.glide
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+public class Ext {
+    public static float getPx(float dp) {
+        return dp * Resources.getSystem().getDisplayMetrics().density;
+    }
 
-import android.content.res.Resources
-
-val Float.px: Float get() = (this * Resources.getSystem().displayMetrics.density)
-
-val Int.px: Int get() = ((this * Resources.getSystem().displayMetrics.density).toInt())
+    public static int getPx(int dp) {
+        return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
+    }
+}

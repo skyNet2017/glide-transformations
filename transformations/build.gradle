@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 
 android {
+  namespace "jp.wasabeef.glide.transformations"
   compileSdkVersion COMPILE_SDK_VERSION as int
 
   defaultConfig {
@@ -8,6 +9,10 @@ android {
     targetSdkVersion TARGET_SDK_VERSION as int
 
     consumerProguardFiles 'proguard-rules.txt'
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
   }
 }
 
@@ -17,28 +22,3 @@ dependencies {
   compileOnly "jp.co.cyberagent.android:gpuimage:$gpuimage_version"
 }
 
-ext {
-  bintrayRepo = 'maven'
-  bintrayName = 'glide-transformations'
-  bintrayUserOrg = 'wasabeef'
-  publishedGroupId = 'jp.wasabeef'
-  libraryName = 'glide-transformations'
-  artifact = 'glide-transformations'
-  libraryDescription = 'Which provides simple Transformations to Glide'
-  siteUrl = 'https://github.com/wasabeef/glide-transformations'
-  gitUrl = 'https://github.com/wasabeef/glide-transformations.git'
-  issueUrl = 'https://github.com/wasabeef/glide-transformations/issues'
-  libraryVersion = VERSION_NAME
-  developerId = 'wasabeef'
-  developerName = 'Wasabeef'
-  developerEmail = 'dadadada.chop@gmail.com'
-  licenseName = 'The Apache Software License, Version 2.0'
-  licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-  allLicenses = ["Apache-2.0"]
-}
-
-// TODO: Close JCenter on May 1st https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/
-// apply from: 'https://gist.githubusercontent.com/wasabeef/cf14805bee509baf7461974582f17d26/raw/bintray-v1.gradle'
-// apply from: 'https://gist.githubusercontent.com/wasabeef/cf14805bee509baf7461974582f17d26/raw/install-v1.gradle'
-
-apply from: 'https://gist.githubusercontent.com/wasabeef/2f2ae8d97b429e7d967128125dc47854/raw/maven-central-v1.gradle'
